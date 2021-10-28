@@ -1,0 +1,47 @@
+{
+	"info": {
+		"_postman_id": "31d765ef-04b6-433e-bceb-28d916983d9e",
+		"name": "alreadyVisitedPlaces",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get list of Places where you have been",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful response\", ()=> {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Is India in the list\", ()=> {",
+							"    pm.expect(pm.response.text()).to.include(\"New Zealand\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://{{alreadyVistedPlaces}}/default/placesAlreadyVisited",
+					"protocol": "https",
+					"host": [
+						"{{alreadyVistedPlaces}}"
+					],
+					"path": [
+						"default",
+						"placesAlreadyVisited"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
