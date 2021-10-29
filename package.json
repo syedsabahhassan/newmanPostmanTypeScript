@@ -4,7 +4,11 @@
   "description": "Newman CLI used for running Postman Collection using Typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "newman-runner": "newman run",
+    "compile": "tsc -p tsconfig.json",
+    "postman-tests": "npm run compile && node ./destiny/run-tests-postman.js"
+
   },
   "repository": {
     "type": "git",
@@ -17,6 +21,14 @@
   },
   "homepage": "https://github.com/sabahcomp/newmanPostmanTypeScript#readme",
   "dependencies": {
-    "newman": "^5.3.0"
+    "newman": "^5.3.0",
+    "newman-reporter-html": "^1.0.5",
+    "newman-reporter-htmlextra": "^1.22.3"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.6",
+    "@types/newman": "^3.11.0",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "3.9.7"
   }
 }
