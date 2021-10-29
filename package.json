@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/sabahcomp/newmanPostmanTypeScript/issues"
   },
-  "homepage": "https://github.com/sabahcomp/newmanPostmanTypeScript#readme"
+  "homepage": "https://github.com/sabahcomp/newmanPostmanTypeScript#readme",
+  "dependencies": {
+    "newman": "^5.3.0"
+  }
 }
