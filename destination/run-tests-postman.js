@@ -99,4 +99,5 @@ var runner = function () { return __awaiter(void 0, void 0, void 0, function () 
 }); };
 runner()
     .then(console.log)
+    ///.finally()
     .catch(console.error);

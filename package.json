@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "newman-runner": "newman run",
     "compile": "tsc -p tsconfig.json",
-    "postman-tests": "npm run compile && node ./destiny/run-tests-postman.js"
+    "postman-tests": "npm run compile && node ./destination/run-tests-postman.js"
 
   },
   "repository": {
