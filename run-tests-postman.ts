@@ -12,7 +12,7 @@ const runner = async () => {
         const configFile = "./environments/test.postman_environment.json";
         let configData = fs.readFileSync(configFile, "utf8");
         const configDataJson = JSON.parse(configData);
-        const testCollections = "./exploratory";
+        const testCollections = "./apitests";
 
         let fileExtension = ".postman_collection.json";
 

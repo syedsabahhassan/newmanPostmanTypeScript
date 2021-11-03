@@ -50,7 +50,7 @@ var runner = function () { return __awaiter(void 0, void 0, void 0, function () 
             configFile = "./environments/test.postman_environment.json";
             configData = fs_1.default.readFileSync(configFile, "utf8");
             configDataJson_1 = JSON.parse(configData);
-            testCollections_1 = "./exploratory";
+            testCollections_1 = "./apitests";
             fileExtension_1 = ".postman_collection.json";
             listOfCollections = listOfCollections.concat(fs_1.default.readdirSync(testCollections_1).filter(function (fn) { return fn.endsWith(fileExtension_1); }));
             listOfCollections.forEach(function (element) {
@@ -99,5 +99,4 @@ var runner = function () { return __awaiter(void 0, void 0, void 0, function () 
 }); };
 runner()
     .then(console.log)
-    ///.finally()
     .catch(console.error);
