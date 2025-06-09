@@ -1,5 +1,6 @@
 import newman from "newman";
 import fs from "fs";
+import path from "path";
 
 
 let listOfCollections: string[] = [];
@@ -9,10 +10,10 @@ const runner = async () => {
     try {
         console.info(`Starting test runner for a new instance
         `);
-        const configFile = "./environments/test.postman_environment.json";
-        let configData = fs.readFileSync(configFile, "utf8");
+        const configFile = path.join(__dirname, "..", "environments", "test.postman_environment.json");
+        const configData = fs.readFileSync(configFile, "utf8");
         const configDataJson = JSON.parse(configData);
-        const testCollections = "./apitests";
+        const testCollections = path.join(__dirname, "..", "apitests");
 
         let fileExtension = ".postman_collection.json";
 
@@ -26,7 +27,7 @@ const runner = async () => {
             try {
                 newman
                     .run({
-                        collection: require(`../${testCollections}/${element}`),
+                        collection: require(path.join(testCollections, element)),
                         environment: configDataJson,
                         insecure: true,
                         reporters: ["cli", "htmlextra"],

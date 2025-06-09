@@ -41,16 +41,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var newman_1 = __importDefault(require("newman"));
 var fs_1 = __importDefault(require("fs"));
+var path_1 = __importDefault(require("path"));
 var listOfCollections = [];
 var runner = function () { return __awaiter(void 0, void 0, void 0, function () {
     var configFile, configData, configDataJson_1, testCollections_1, fileExtension_1;
     return __generator(this, function (_a) {
         try {
             console.info("Starting test runner for a new instance\n        ");
-            configFile = "./environments/test.postman_environment.json";
+            configFile = path_1.default.join(__dirname, "..", "environments", "test.postman_environment.json");
             configData = fs_1.default.readFileSync(configFile, "utf8");
             configDataJson_1 = JSON.parse(configData);
-            testCollections_1 = "./apitests";
+            testCollections_1 = path_1.default.join(__dirname, "..", "apitests");
             fileExtension_1 = ".postman_collection.json";
             listOfCollections = listOfCollections.concat(fs_1.default.readdirSync(testCollections_1).filter(function (fn) { return fn.endsWith(fileExtension_1); }));
             listOfCollections.forEach(function (element) {
@@ -58,7 +59,7 @@ var runner = function () { return __awaiter(void 0, void 0, void 0, function () 
                 try {
                     newman_1.default
                         .run({
-                        collection: require("../" + testCollections_1 + "/" + element),
+                        collection: require(path_1.default.join(testCollections_1, element)),
                         environment: configDataJson_1,
                         insecure: true,
                         reporters: ["cli", "htmlextra"],
